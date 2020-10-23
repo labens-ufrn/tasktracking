@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Diretório do VSCode
+.vscode/
+.vscode/settings.json
