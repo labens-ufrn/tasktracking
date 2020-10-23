@@ -7,7 +7,7 @@ Sistema Web para Monitoramento de Tarefas em Projetos. Nele é possível criar t
 Membro     |     Papel              |   E-mail             | github         |
 ---------  | ---------------------- | -------------------- | -------------- |
 Taciano    | Cliente Professor      | tacianosilva@gmail.com  | tacianosilva               |
-Arthur     | Analista, Dev e Tester |          |                |
+Arthur     | Analista, Dev e Tester | jonasfariasantos@hotmail.com | Jonasfaria |
 Jonas      | Analista, Dev e Tester |          |                |
 Pedro      | Analista, Dev e Tester |          |                |
 Wanessa    | Analista, Dev e Tester |          |                |
