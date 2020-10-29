@@ -41,3 +41,17 @@ Ctrl + Shift + P → Python: Select Interpreter
 ![VSCode](https://i.stack.imgur.com/XQEku.gif)
 
 fonte: [Stack Overflow](https://stackoverflow.com/questions/53939751/pylint-unresolved-import-error-in-visual-studio-code)
+
+#### Unresolved import warnings
+
+Erro de imports no **Pylance - VSCode** são causados pela ausência de um diretório **src/**. Como o projeto segue o estilo Django, não tem diretório **src/**, talvez devessemos criar???.
+
+Para resolver precisamos ensinar os diretórios extras para o vscode analisar:
+
+```json
+{
+    "python.analysis.extraPaths": ["./sources"]
+}
+```
+
+fonte: [PyLance](https://github.com/microsoft/pylance-release/blob/master/TROUBLESHOOTING.md#unresolved-import-warnings)
