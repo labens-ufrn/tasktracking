@@ -12,7 +12,28 @@ Documentação do Projeto.
 
 Passo a passo para preparar o ambiente de desenvolvimento.
 
-### Configure o Python Interpreter no VSCode 
+### Criar o Ambiente Virtual (Opcional)
+
+### Instalar dependência do projeto
+
+```shell
+pip install -r requirements.txt
+```
+
+### Executar as migrações
+
+```shell
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### Executar servidor de teste
+
+```
+python manage.py runserver
+```
+
+### Configure o Python Interpreter no VSCode
 
 Ctrl + Shift + P → Python: Select Interpreter
     → escolha um dos interpretadores que aparecer na lista:
