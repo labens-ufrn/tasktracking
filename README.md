@@ -16,20 +16,20 @@ Passo a passo para preparar o ambiente de desenvolvimento.
 
 ### Instalar dependência do projeto
 
-```shell
+```bash
 pip install -r requirements.txt
 ```
 
 ### Executar as migrações
 
-```shell
+```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
 ### Executar servidor de teste
 
-```
+```bash
 python manage.py runserver
 ```
 
