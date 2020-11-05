@@ -15,17 +15,10 @@ class Tag(models.Model):
 class Link(models.Model):
     nome = models.CharField(max_length=50)
     url = models.URLField()
-    def __str__(self, nome, url):
+    def __str__(self):
         self.nome
         self.url
-    def setNome(self):
-        return self.nome
-    def setUrl(self):
-        return self.url
-    def getNome(self):
-        return self.nome
-    def getUrl(self):
-        return self.url
+
 
 class Tarefa(models.Model):
     STATUS_CHOICES = (
