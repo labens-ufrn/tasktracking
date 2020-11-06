@@ -3,6 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Usuario(models.Model):
+    """
+        Gabriel Gonçalo
+    Args:
+        models ([type]): [description]
+    """
+    nome = models.CharField(max_length=200)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -10,13 +16,28 @@ class Usuario(models.Model):
     )
 
 class Tag(models.Model):
+    """
+        Jonas
+    Args:
+        models ([type]): [description]
+    """
     nome = models.CharField(max_length=50)
 
 class Link(models.Model):
+    """
+        Wanessa
+    Args:
+        models ([type]): [description]
+    """
     nome = models.CharField(max_length=50)
     url = models.URLField()
 
 class Tarefa(models.Model):
+    """
+        Arthur
+    Args:
+        models ([type]): [description]
+    """
     STATUS_CHOICES = (
         ("1", "Planejada"),
         ("2", "Em Execução"),
@@ -33,15 +54,18 @@ class Tarefa(models.Model):
     nome = models.CharField(max_length=100)
     descrição = models.CharField(max_length=250)
     criada_em = models.DateTimeField(auto_now_add=True)
-    fechada_em = models.DateTimeField()
+    fechada_em = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     situacao = models.CharField(max_length=1, choices=SITUACAO_CHOICES)
 
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.identificador + ' - ' + self.nome
+
 class Execucao(models.Model):
     """[summary]
-
+        Pedro
     Args:
         models ([type]): [Representa uma execução de uma tarefa.]
     """
