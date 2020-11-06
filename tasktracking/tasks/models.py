@@ -31,6 +31,10 @@ class Link(models.Model):
     """
     nome = models.CharField(max_length=50)
     url = models.URLField()
+    def __str__(self):
+        self.nome
+        self.url
+
 
 class Tarefa(models.Model):
     """
