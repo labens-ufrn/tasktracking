@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>PWeb 2020.6 - Detalhar Tarefa</title>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <table class="table table-striped table-sm table-bordered">
+        <tr>
+            <td class="font-weight-bold" width="20%">Identificador</td>
+            <td>{{ object.identificador }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Nome</td>
+            <td>{{ object.nome }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Descrição</td>
+            <td>{{ object.descrição }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Criação</td>
+            <td>{{ object.criada_em }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Fechamento</td>
+            <td>{{ object.fechada_em }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Status</td>
+            <td>{{ object.status }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Situação</td>
+            <td>{{ object.situacao }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Criador</td>
+            <td>{{ object.usuario }}</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Links</td>
+            <td>
+                <ul>
+                {% for link in object.link_set.all %}
+                    <li>{{ link }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock%}

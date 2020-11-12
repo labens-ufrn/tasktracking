@@ -1,6 +1,7 @@
 from django.http import request
 from django.shortcuts import redirect, render
-from tasks.forms import TarefaForm
+from django.views.generic import DetailView
+from tasks.forms import LinkForm, TarefaForm
 
 from tasks.models import Tarefa
 from tasks.models import Link
@@ -31,6 +32,12 @@ def cadastrar_tarefa(request):
         'form_tarefa': form_tarefa
     }
     return render(request, 'tasks/tarefa/cadastrar_tarefa.html', context=context)
+
+
+class TarefaDetailView(DetailView):
+    model = Tarefa
+    template_name = 'tasks/tarefa/detalhar.html'
+
 
 def cadastrar_link(request):
     if request.method == 'POST':
