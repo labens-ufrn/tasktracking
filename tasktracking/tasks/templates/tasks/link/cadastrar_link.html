@@ -10,7 +10,7 @@
     {% csrf_token %}
 
     <table class="table table-sm table-responsive-sm">
-        {% for field in form_tarefa.visible_fields %}
+        {% for field in form_link.visible_fields %}
           <tr>
             <th class="align-middle">
               <label>{{ field.label_tag }}</label>
