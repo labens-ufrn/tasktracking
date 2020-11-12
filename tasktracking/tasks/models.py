@@ -15,6 +15,9 @@ class Usuario(models.Model):
         null=True
     )
 
+    def __str__(self):
+        return self.nome
+
 class Tag(models.Model):
     """
         Jonas
@@ -31,9 +34,10 @@ class Link(models.Model):
     """
     nome = models.CharField(max_length=50)
     url = models.URLField()
+    tarefa = models.ForeignKey('Tarefa', on_delete=models.CASCADE, null=True)
+
     def __str__(self):
-        self.nome
-        self.url
+        return self.nome + ' ' + self.url
 
 
 class Tarefa(models.Model):
