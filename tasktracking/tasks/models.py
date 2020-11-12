@@ -61,7 +61,6 @@ class Tarefa(models.Model):
     fechada_em = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     situacao = models.CharField(max_length=1, choices=SITUACAO_CHOICES)
-
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
     def __str__(self):
