@@ -17,13 +17,19 @@
       <i class="fas fa-search"></i>
   </div>
   <ul class="task-list">
-
     {% for tarefa in lista_tarefas %}
       <li class="task-item">
+        <span>play stop</span>
         <a href="{% url 'detalhar_tarefa' tarefa.pk %}"  
           <span>{{ tarefa }}</span>
         </a>
-        <span>Lista de Tags (tarefa.tag_set.all)</span>
+        <span>00:00:00</span>
+        <div class="tag_text">
+          {% for tag in tarefa.tag_set.all %}
+            {{ tag }}<span>&nbsp;</span>
+          {% endfor %}
+        </div>
+        <input />
         <span><i class="fas fa-trash"></i></span>
         <span><i class="fas fa-edit"></i></span>
       </li>

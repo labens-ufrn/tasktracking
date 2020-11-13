@@ -133,4 +133,5 @@ footer#rodape p {
     text-align: right;
     display:inline-block;
     font-size: 12px;
+    margin: auto 20px;
 }
