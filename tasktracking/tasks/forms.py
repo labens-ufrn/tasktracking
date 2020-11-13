@@ -1,5 +1,5 @@
 from django import forms
-from tasks.models import Link, Tarefa
+from tasks.models import Link, Tarefa, Tag
 
 
 class TarefaForm(forms.ModelForm):
@@ -10,4 +10,9 @@ class TarefaForm(forms.ModelForm):
 class LinkForm(forms.ModelForm):
     class Meta:
         model = Link
+        fields = '__all__'
+
+class TagForm(forms.ModelForm):
+    class Meta:
+        model = Tag
         fields = '__all__'

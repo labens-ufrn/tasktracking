@@ -49,6 +49,16 @@
                 </ul>
             </td>
         </tr>
+        <tr>
+            <td class="font-weight-bold" width="20%">Tags</td>
+            <td>
+                <ul>
+                {% for tag in object.tag_set.all %}
+                    <li>{{ tag }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
     </table>
 </div>
 {% endblock%}
