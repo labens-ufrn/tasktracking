@@ -44,7 +44,9 @@
             <td>
                 <ul>
                 {% for link in object.link_set.all %}
-                    <li>{{ link }}</li>
+                    <li>{{ link.nome }}:
+                        <a href="{{ link.url }}">{{ link.url }}</a>
+                    </li>
                 {% endfor %}
                 </ul>
             </td>
@@ -52,11 +54,9 @@
         <tr>
             <td class="font-weight-bold" width="20%">Tags</td>
             <td>
-                <ul>
                 {% for tag in object.tag_set.all %}
-                    <li>{{ tag }}</li>
+                    {{ tag }}<span>&nbsp;&nbsp;</span>
                 {% endfor %}
-                </ul>
             </td>
         </tr>
     </table>
