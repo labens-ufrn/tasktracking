@@ -129,3 +129,8 @@ footer#rodape p {
     position: relative;
 }
 
+.tag_text {
+    text-align: right;
+    display:inline-block;
+    font-size: 12px;
+}
