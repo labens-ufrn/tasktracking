@@ -6,28 +6,37 @@
 /* Barra de Navegação */
 
 .navbar {
-    border-bottom: 1px solid #333;
-    margin-bottom: 20px;
+    border-bottom: 3px solid #8080ff;
+    margin-bottom: 70px;
 }
 
 .navbar-nav {
     margin: auto;
+    color: #000080;
+    font-weight: bold;
+    font-size: 19px;
 }
 
 .navbar-brand {
     font-weight: bold;
+    font-style: italic;
+    margin-left: 150px;
+    position: absolute;
+    font-size: 22px;
 }
 
 .navbar-light .navbar-nav a.nav-link {
-    color: #333;
+    color: #000080;
     letter-spacing: 1px;
 }
+
 
 
 /* Botão de adicionar */
 
 .add-div {
-    background-color: #3476e2;
+    background-color: #8080ff;
+    border-bottom: 4px solid #000080;
     cursor: pointer;
     display: inline-block;
     color: #FFF;
@@ -40,6 +49,12 @@
     color: #FFF;
     margin-right: 10px;
     margin-left: 5px;
+}
+
+.add-tarefa {
+    color: #ffffff;
+    margin-left: 27px;
+    font-weight: bold;
 }
 
 
@@ -98,17 +113,19 @@
 
 footer#rodape {
     clear: both;
-    background-color: #333;
+    background-color: #e6e6ff;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 100px;
-    border-top: 2px solid #202020;
+    border-top: 3px solid #8080ff;
 }
 
 footer#rodape p {
     text-align: center;
-    color: #f5f5f5;
+    font-size: 18px;
+    color: #000080;
     top: 40%;
     position: relative;
 }
+
