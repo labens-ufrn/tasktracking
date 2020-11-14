@@ -19,8 +19,9 @@
   <ul class="task-list">
     {% for tarefa in lista_tarefas %}
       <li class="task-item">
-        <span>play stop</span>
-        <a href="{% url 'detalhar_tarefa' tarefa.pk %}"  
+        <span><i class="fas fa-play"></i></span>
+        <span><i class="fas fa-stop"></i></span>
+        <a href="{% url 'detalhar_tarefa' tarefa.pk %}"
           <span>{{ tarefa }}</span>
         </a>
         <span>00:00:00</span>
