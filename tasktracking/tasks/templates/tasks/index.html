@@ -13,16 +13,20 @@
     </a>
   </div>
 
-  <div class="col-9 search-div">
-      <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da tarefa para buscar...">
-      <i class="fas fa-search"></i>
-  </div>
+    <form action="/pesquisar_tarefas" method="post" class="col-9 search-div">
+      {% csrf_token %}
+      <input class="form-control" type="text" id="search" name="search" 
+      placeholder="Digite o nome da tarefa para buscar...">
+      <button type="submit" class="fas fa-search btn-light">
+      </button>
+    </form>
 
   <ul class="task-list">
     {% for tarefa in lista_tarefas %}
       <li class="task-item">
         <span><i class="fas fa-play"></i></span>
         <span><i class="fas fa-stop"></i></span>
+        <span>&nbsp;</span>
         <a href="{% url 'detalhar_tarefa' tarefa.pk %}"
         <span>{{ tarefa }}</span>
         </a>

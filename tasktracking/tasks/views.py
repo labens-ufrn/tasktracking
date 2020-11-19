@@ -69,3 +69,15 @@ def cadastrar_tag(request):
         'form_tag': form_tag
     }
     return render(request, 'tasks/tags/cadastrar_tag.html', context=context)
+
+
+def buscar_tarefas(request):
+
+    search = request.POST.get("search")
+
+    lista_tarefas = Tarefa.objects.filter(nome__icontains=search)
+
+    context = {
+       'lista_tarefas': lista_tarefas
+    }
+    return render(request, 'tasks/index.html', context=context)
