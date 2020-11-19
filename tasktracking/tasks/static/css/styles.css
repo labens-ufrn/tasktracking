@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+p {
+    text-align: justify;
+    text-indent: 50px;
+}
+
+a {
+    color: #606060;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 
 /* Barra de Navegação */
 
@@ -58,7 +72,7 @@
 
 .add-tarefa {
     color: #ffffff;
-    margin-left: 27px;
+    margin-left: 0px;
     font-weight: bold;
 }
 
@@ -73,6 +87,7 @@
 
 .search-div {
     padding: 0;
+    cursor: pointer;
     margin-top: 15px;
     margin-bottom: 15px;
     display: inline-block;
@@ -129,6 +144,12 @@
     float: right;
 }
 
+.link {
+    display: block;
+    padding: 2px;
+    margin: 0px;
+}
+
 
 /* Rodapé */
 
@@ -144,6 +165,7 @@ footer#rodape {
 
 footer#rodape p {
     text-align: center;
+    font-family: 'Rajdhani', sans-serif;
     font-size: 18px;
     color: #2E2E2E;
     top: 40%;

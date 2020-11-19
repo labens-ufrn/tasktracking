@@ -44,7 +44,7 @@
             <td>
                 <ul>
                 {% for link in object.link_set.all %}
-                    <li>{{ link.nome }}:
+                    <li class="link">{{ link.nome }}:
                         <a href="{{ link.url }}">{{ link.url }}</a>
                     </li>
                 {% endfor %}
