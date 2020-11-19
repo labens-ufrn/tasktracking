@@ -8,21 +8,31 @@
 <div class="offset-1 col-10 list-div">
   <div class="col-2 add-div">
     <a href="{% url 'cadastrar_tarefa' %}" class="btn">
-      <i class="fas fa-plus"></i>Adicionar Tarefa
+      <i class="fas fa-plus"></i>
+      <span class="add-tarefa">Adicionar Tarefa</span>
     </a>
   </div>
+
   <div class="col-9 search-div">
       <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da tarefa para buscar...">
       <i class="fas fa-search"></i>
   </div>
-  <ul class="task-list">
 
+  <ul class="task-list">
     {% for tarefa in lista_tarefas %}
       <li class="task-item">
-        <a href="{% url 'detalhar_tarefa' tarefa.pk %}"  
-          <span>{{ tarefa }}</span>
+        <span><i class="fas fa-play"></i></span>
+        <span><i class="fas fa-stop"></i></span>
+        <a href="{% url 'detalhar_tarefa' tarefa.pk %}"
+        <span>{{ tarefa }}</span>
         </a>
-        <span>Lista de Tags (tarefa.tag_set.all)</span>
+        <span>00:00:00</span>
+        <div class="tag_text">
+          {% for tag in tarefa.tag_set.all %}
+            {{ tag }}<span>&nbsp;</span>
+          {% endfor %}
+        </div>
+        <input />
         <span><i class="fas fa-trash"></i></span>
         <span><i class="fas fa-edit"></i></span>
       </li>

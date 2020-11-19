@@ -7,4 +7,5 @@ urlpatterns = [
     path('cadastrar_tarefa', views.cadastrar_tarefa, name='cadastrar_tarefa'),
     path('detalhar_tarefa/<int:pk>/', views.TarefaDetailView.as_view(), name='detalhar_tarefa'),
     path('cadastrar_link', views.cadastrar_link, name='cadastrar_link'),
+    path('cadastrar_tag', views.cadastrar_tag, name='cadastrar_tag'),
 ]

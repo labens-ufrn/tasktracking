@@ -1,16 +1,18 @@
 from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView
-from tasks.forms import LinkForm, TarefaForm
+from tasks.forms import LinkForm, TarefaForm, TagForm
 
 from tasks.models import Tarefa
 from tasks.models import Link
+from tasks.models import Tag
 
 def index(request):
     """View function for home page of site."""
 
     lista_tarefas = Tarefa.objects.all()
     lista_link = Link.objects.all()
+    lista_tag = Tag.objects.all()
 
     context = {
         'lista_tarefas': lista_tarefas
@@ -53,3 +55,17 @@ def cadastrar_link(request):
     }
     return render(request, 'tasks/link/cadastrar_link.html', context=context)
 
+
+def cadastrar_tag(request):
+    if request.method == 'POST':
+        form_tag = TagForm(request.POST)
+        if form_tag.is_valid():
+            form_tag.save()
+            return redirect('index')
+    else:
+        form_tag = TagForm()
+
+    context = {
+        'form_tag': form_tag
+    }
+    return render(request, 'tasks/tags/cadastrar_tag.html', context=context)

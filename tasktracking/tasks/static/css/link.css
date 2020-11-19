@@ -1,0 +1,10 @@
+@charset "UTF-8";
+form {
+    width: 600px;
+    margin: auto;
+}
+
+fieldset {
+    border-color: #cecece;
+    margin: 20px;
+}

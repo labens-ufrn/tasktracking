@@ -18,6 +18,7 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Tag(models.Model):
     """
         Jonas
@@ -25,6 +26,11 @@ class Tag(models.Model):
         models ([type]): [description]
     """
     nome = models.CharField(max_length=50)
+    tarefa = models.ForeignKey('Tarefa', on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.nome
+
 
 class Link(models.Model):
     """
@@ -32,9 +38,9 @@ class Link(models.Model):
     Args:
         models ([type]): [description]
     """
+    tarefa = models.ForeignKey('Tarefa', on_delete=models.CASCADE, null=True)
     nome = models.CharField(max_length=50)
     url = models.URLField()
-    tarefa = models.ForeignKey('Tarefa', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.nome + ' ' + self.url
@@ -69,6 +75,7 @@ class Tarefa(models.Model):
 
     def __str__(self):
         return self.identificador + ' - ' + self.nome
+
 
 class Execucao(models.Model):
     """[summary]
