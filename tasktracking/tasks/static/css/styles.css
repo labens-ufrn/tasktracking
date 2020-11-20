@@ -54,7 +54,7 @@ a:hover {
 
 .add-div {
     font-family: 'Rajdhani', sans-serif;
-    background-color: #808080;
+    background-color: #8d1195;
     border-bottom: 3px solid #CECECE;
     cursor: pointer;
     display: inline-block;
@@ -87,10 +87,19 @@ a:hover {
 
 .search-div {
     padding: 0;
-    cursor: pointer;
     margin-top: 15px;
     margin-bottom: 15px;
     display: inline-block;
+}
+
+.fas.fa-search.btn-light {
+    color: #808080;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 0px;
+    display: block;
+    border: none;
+    box-sizing: none;
 }
 
 

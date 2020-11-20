@@ -25,8 +25,8 @@ class Tag(models.Model):
     Args:
         models ([type]): [description]
     """
-    nome = models.CharField(max_length=50)
     tarefa = models.ForeignKey('Tarefa', on_delete=models.CASCADE, null=True)
+    nome = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nome
