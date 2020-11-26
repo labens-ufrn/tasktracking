@@ -2,6 +2,7 @@ from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView
 from tasks.forms import LinkForm, TarefaForm, TagForm
+from django.core.paginator import Paginator
 
 from tasks.models import Tarefa
 from tasks.models import Link
@@ -81,3 +82,19 @@ def buscar_tarefas(request):
        'lista_tarefas': lista_tarefas
     }
     return render(request, 'tasks/index.html', context=context)
+
+def taskList (request):
+
+    lista_tarefas  = Tarefa.objects.all().order_by('-created_at')
+
+    paginator = Paginator(lista_tarefas, 3)
+
+    page = request.GET.get('page')
+
+    tasks = paginator.get_page(page)
+
+    context = {
+       'lista_tarefas': lista_tarefas
+    }
+    return render(request, 'tasks/index.html', context=context)
+
