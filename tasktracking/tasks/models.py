@@ -83,7 +83,18 @@ class Execucao(models.Model):
     Args:
         models ([type]): [Representa uma execução de uma tarefa.]
     """
+    PARADA = "1"
+    EXECUTANDO = "2"
+    PAUSADA = "3"
+
+    STATUS_CHOICES = (
+        ("1", "Parada"),
+        ("2", "Executando"),
+        ("3", "Pausada"),
+    )
+
     inicio = models.DateTimeField()
-    fim = models.DateTimeField()
+    fim = models.DateTimeField(null=True, blank=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, null=True)
     tarefa = models.ForeignKey(Tarefa, on_delete=models.PROTECT)
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
