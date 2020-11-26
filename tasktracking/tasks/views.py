@@ -1,9 +1,11 @@
 from django.http import request
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView
+from datetime import datetime
 from tasks.forms import LinkForm, TarefaForm, TagForm
 
-from tasks.models import Tarefa
+from tasks.models import Execucao, Tarefa
 from tasks.models import Link
 from tasks.models import Tag
 
@@ -81,3 +83,25 @@ def buscar_tarefas(request):
        'lista_tarefas': lista_tarefas
     }
     return render(request, 'tasks/index.html', context=context)
+
+
+def cadastrar_execucao(request):
+    tarefa_pk = request.GET.get('tarefa_pk')
+    print('Passando na View!' + tarefa_pk)
+
+    tarefa = Tarefa.objects.get(pk=tarefa_pk)
+    inicio = datetime.now()
+    Execucao.objects.create(
+        inicio=inicio, tarefa=tarefa, 
+        status=Execucao.EXECUTANDO,
+        usuario=tarefa.usuario)
+    
+    data = dict()
+    return JsonResponse(data)
+
+
+def stop_execucao(request):
+    # Buscar uma execução da tarefa selecionda que esteja EXECUTANDO
+    # Colocar o status PARADA e a data de fim.
+    data = dict()
+    return JsonResponse(data)
