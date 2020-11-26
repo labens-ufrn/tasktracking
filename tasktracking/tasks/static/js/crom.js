@@ -6,8 +6,20 @@ var tempo = 1000;
 var cron;
 
 
-function start() {
+function start(tarefa_pk) {
     cron = setInterval(() => { timer(); }, tempo);
+    console.log('Execução da Tarefa ' + tarefa_pk + ' cadastrada!');
+  
+    $.ajax({                       // initialize an AJAX request
+        url: 'http://localhost:8000/cadastrar_execucao',                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+            'tarefa_pk': tarefa_pk       // add the country id to the GET parameters
+        },
+        success: function (data) {
+            console.log('Ajax: Execução da Tarefa ' + tarefa_pk + ' cadastrada!');
+        }
+    });
+    
 }
 function pause() {
     clearInterval(cron);

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block titulo %}
   <title>PWeb 2020.6 - Index</title>
@@ -24,20 +25,20 @@
   <ul class="task-list">
     {% for tarefa in lista_tarefas %}
       <li class="task-item">
-        <span><i class="fas fa-play"></i></span>
-        <span><i class="fas fa-stop"></i></span>
+        <span><i class="fas fa-play" onclick="start('{{ tarefa.pk }}')"></i></span>
+        <span><i class="fas fa-pause" onclick="pause()"></i></span>
+        <span><i class="fas fa-stop" onclick="stop()"></i></span>
         <span>&nbsp;</span>
         <a href="{% url 'detalhar_tarefa' tarefa.pk %}"
         <span>{{ tarefa }}</span>
         </a>
-        <span>00:00:00</span>
+        <div id="counter" class="d-inline">00:00:00</div>
         <div class="tag_text">
           {% for tag in tarefa.tag_set.all %}
             {{ tag }}<span>&nbsp;</span>
           {% endfor %}
         </div>
         <input />
-        <span>00:00:00</span>
         <span><i class="fas fa-trash"></i></span>
         <span><i class="fas fa-edit"></i></span>
       </li>
@@ -45,3 +46,7 @@
   </ul>
 </div>
 {% endblock%}
+
+{% block myscripts %}
+  <script src="{% static 'js/crom.js' %}"></script>
+{% endblock myscripts %}
