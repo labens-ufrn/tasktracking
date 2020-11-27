@@ -124,6 +124,14 @@
         font-size: 20px;
         float: left;
     }
+
+   .fas.fa-pause {
+        color: #be630d;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 20px;
+        float: left;
+    }
     
     .fas.fa-stop {
         color: #db1e47;
