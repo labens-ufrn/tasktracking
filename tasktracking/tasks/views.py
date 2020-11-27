@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import DetailView
 from datetime import datetime
 from tasks.forms import LinkForm, TarefaForm, TagForm
+from django.core.paginator import Paginator
 
 from tasks.models import Execucao, Tarefa
 from tasks.models import Link
@@ -12,12 +13,18 @@ from tasks.models import Tag
 def index(request):
     """View function for home page of site."""
 
-    lista_tarefas = Tarefa.objects.all()
-    lista_link = Link.objects.all()
-    lista_tag = Tag.objects.all()
+    lista_tarefas  = Tarefa.objects.all().order_by('-criada_em')
+
+    paginator = Paginator(lista_tarefas, 3)
+
+    page_number = request.GET.get('page')
+    if page_number is None:
+        page_number = 1
+
+    lista_tarefas_paginada = paginator.get_page(page_number)
 
     context = {
-        'lista_tarefas': lista_tarefas
+        'lista_tarefas_paginada': lista_tarefas_paginada
     }
 
     return render(request, 'tasks/index.html', context=context)

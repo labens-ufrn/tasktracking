@@ -16,14 +16,14 @@
 
     <form action="/pesquisar_tarefas" method="post" class="col-9 search-div">
       {% csrf_token %}
-      <input class="form-control" type="text" id="search" name="search" 
+      <input class="form-control" type="text" id="search" name="search"
       placeholder="Digite o nome da tarefa para buscar...">
       <button type="submit" class="fas fa-search btn-light">
       </button>
     </form>
 
   <ul class="task-list">
-    {% for tarefa in lista_tarefas %}
+    {% for tarefa in lista_tarefas_paginada %}
       <li class="task-item">
         <span><i class="fas fa-play" onclick="start('{{ tarefa.pk }}')"></i></span>
         <span><i class="fas fa-pause" onclick="pause()"></i></span>
@@ -32,7 +32,9 @@
         <a href="{% url 'detalhar_tarefa' tarefa.pk %}"
         <span>{{ tarefa }}</span>
         </a>
+
         <div id="counter" class="d-inline">00:00:00</div>
+
         <div class="tag_text">
           {% for tag in tarefa.tag_set.all %}
             {{ tag }}<span>&nbsp;</span>
@@ -44,6 +46,30 @@
       </li>
     {% endfor %}
   </ul>
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if lista_tarefas_paginada.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ lista_tarefas_paginada.previous_page_number }}">
+          <i class="fas fa-arrow-left"></i></a>
+      {% else %}
+        <a href="#" class="disabled button big previous">#</a>
+      {% endif %}
+
+      <span class="current">
+        {{ lista_tarefas_paginada.number }} de {{ lista_tarefas_paginada.paginator.num_pages }}
+      </span>
+
+      {% if lista_tarefas_paginada.has_next %}
+        <a href="?page={{ lista_tarefas_paginada.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+        <a href="?page={{ lista_tarefas_paginada.paginator.num_pages }}">last &raquo;</a>
+        {%else%}
+        <a href="#" class="button big next">#</a>
+      {% endif %}
+    </span>
+  </div>
+  
 </div>
 {% endblock%}
 
