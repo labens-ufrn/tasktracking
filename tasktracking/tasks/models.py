@@ -98,3 +98,5 @@ class Execucao(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, null=True)
     tarefa = models.ForeignKey(Tarefa, on_delete=models.PROTECT)
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+
+

@@ -1,6 +1,12 @@
 from django.urls import path
-
+from django.urls import path, include # new
 from tasks import views
+from django.urls import path, include
+from django.contrib import admin
+from django.views.generic.base import TemplateView
+
+
+#from .views import SignUpView
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -10,4 +16,8 @@ urlpatterns = [
     path('cadastrar_tag', views.cadastrar_tag, name='cadastrar_tag'),
     path('pesquisar_tarefas', views.buscar_tarefas, name='buscar_tarefas'),
     path('cadastrar_execucao', views.cadastrar_execucao, name='cadastrar_execucao'),
+    path('accounts/', include('django.contrib.auth.urls')), # new
+    #path('accounts/', include('accounts.urls')), # new
+    #path('signup/', SignUpView.as_view(), name='signup'),
+    #path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
 ]
