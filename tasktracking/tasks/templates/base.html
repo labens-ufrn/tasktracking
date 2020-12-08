@@ -29,11 +29,10 @@
                     <li><a class="nav-link" href="#">Execuções</a></li>
                     <li><a class="nav-link" href="">
                     {% if user.is_authenticated %}
-                        Hi {{ user.username }}!
-                        <p><a href="{% url 'logout' %}">Log Out</a></p>
+                        Oi {{ user.username }}!
+                        <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                        <p>You are not logged in</p>
-                        <a href="{% url 'login' %}">Log In</a>
+                        <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                     {% endif %}
                 </ul>
             </div>

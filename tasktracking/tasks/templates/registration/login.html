@@ -3,7 +3,7 @@
 <body>
 <h2>Log In</h2>
 <form method="post">
-  <input type="hidden" name="csrfmiddlewaretoken" value="oknvdDtxFgQqC1JNAiGL5kyxOuDIU1JKrdHto4Ih39hOzW48kh1O5gjJsf3smaZx">
+  {% csrf_token %}
   <ul class="errorlist nonfield">
 <li>Por favor, entre com um usuário  e senha corretos. Note que ambos os campos diferenciam maiúsculas e minúsculas.
 </li>
@@ -17,6 +17,8 @@
 <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
 </p>
   <button type="submit">Log In</button>
+  
 </form>
+<a href="{% url 'signup' %}">cadastre-se.</a>
 </body>
 </html>

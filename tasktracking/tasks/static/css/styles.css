@@ -20,6 +20,12 @@ a:hover {
 
 /* Barra de Navegação */
 
+.logout {
+    /*margin-right: 15px;*/
+    right: 20px;
+    
+}
+
 .navbar {
     border-bottom: 2px solid#cc71cf;
     margin-bottom: 70px;
